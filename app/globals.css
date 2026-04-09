@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0B1D3A;
+  --blue: #1B6FEB;
+  --green: #059669;
+  --red: #DC2626;
+  --amber: #D97706;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #F0F4F9;
+  overscroll-behavior: none;
+}
+
+/* Scrollbar slim */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(11,29,58,.2); border-radius: 2px; }
+
+@layer components {
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl p-5 mb-3 border border-black/[0.08] shadow-sm;
+  }
+  .card-label {
+    @apply font-display text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3;
+  }
+
+  /* ── Inputs ── */
+  .field-input {
+    @apply w-full h-[52px] border-[1.5px] border-black/[0.09] rounded-xl px-4
+           text-[17px] font-sans bg-slate-50 text-navy focus:outline-none
+           focus:border-brand focus:bg-white transition-colors;
+  }
+  .icao-input {
+    @apply field-input font-mono text-center text-2xl font-semibold tracking-widest uppercase;
+  }
+
+  /* ── Segment control ── */
+  .seg-wrap {
+    @apply flex bg-slate-100 rounded-xl p-[2px] border border-black/[0.07];
+  }
+  .seg-btn {
+    @apply flex-1 h-10 border-none rounded-[10px] bg-transparent
+           text-[13px] font-semibold text-slate-400 cursor-pointer
+           transition-all duration-200 font-sans;
+  }
+  .seg-btn.active {
+    @apply bg-white text-navy shadow-sm;
+  }
+
+  /* ── Main buttons ── */
+  .btn-primary {
+    @apply w-full h-14 rounded-2xl text-[17px] font-semibold text-white
+           cursor-pointer transition-opacity active:opacity-80 font-sans;
+    max-width: 640px;
+    display: block;
+    margin: 0 auto;
+  }
+  .btn-ghost {
+    @apply w-full h-12 rounded-xl bg-transparent border-[1.5px] border-black/[0.09]
+           text-[15px] font-semibold text-slate-400 cursor-pointer font-sans mt-2;
+    max-width: 640px;
+    display: block;
+    margin: 8px auto 0;
+  }
+
+  /* ── Result cards ── */
+  .rc {
+    @apply rounded-2xl p-5 mb-3 border-[1.5px];
+  }
+  .rc-go { @apply bg-emerald-50 border-emerald-200; }
+  .rc-warn { @apply bg-amber-50 border-amber-200; }
+  .rc-fail { @apply bg-red-50 border-red-200; }
+  .rc-info { @apply bg-blue-50 border-blue-200; }
+  .rc-title {
+    @apply font-display text-[26px] font-extrabold leading-none;
+  }
+  .rc-go .rc-title { @apply text-emerald-700; }
+  .rc-warn .rc-title { @apply text-amber-700; }
+  .rc-fail .rc-title { @apply text-red-700; }
+  .rc-info .rc-title { @apply text-blue-700; }
+  .rc-sub { @apply text-[13px] mt-2 leading-relaxed; }
+  .rc-go .rc-sub { @apply text-emerald-800; }
+  .rc-warn .rc-sub { @apply text-amber-800; }
+  .rc-fail .rc-sub { @apply text-red-800; }
+  .rc-info .rc-sub { @apply text-blue-800; }
+
+  /* ── Comparison table ── */
+  .comp-th {
+    @apply text-[11px] font-bold text-slate-400 uppercase tracking-wider
+           px-3 py-2 bg-slate-50 text-left;
+  }
+  .comp-th:not(:first-child) { @apply text-center; }
+  .comp-td { @apply px-3 py-3 border-t border-black/[0.06] text-[14px] font-medium; }
+  .comp-td:not(:first-child) { @apply text-center font-mono text-[13px]; }
+  .val-ok { @apply text-emerald-600 font-bold; }
+  .val-fail { @apply text-red-600 font-bold; }
+  .val-na { @apply text-slate-400; }
+
+  /* ── Notam ── */
+  .notam-card {
+    @apply bg-white rounded-xl p-4 mb-3 border border-black/[0.08] border-l-4 border-l-slate-200 transition-opacity;
+  }
+  .notam-card.crit { @apply border-l-red-500 bg-red-50; }
+  .notam-card.read { @apply opacity-40; }
+
+  /* ── Hint box ── */
+  .hint-box {
+    @apply bg-slate-50 rounded-xl px-4 py-3 text-[13px] text-slate-500 leading-relaxed border border-black/[0.07] mt-2;
+  }
+
+  /* ── METAR raw ── */
+  .metar-raw {
+    @apply font-mono text-[12px] leading-7 bg-navy text-sky-300
+           px-4 py-3 rounded-xl break-all mt-3;
+  }
+}

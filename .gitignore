@@ -1,0 +1,22 @@
+# deps
+node_modules/
+.pnp
+.pnp.js
+
+# build
+.next/
+out/
+
+# env — ne jamais committer les secrets
+.env.local
+.env.*.local
+
+# IDE
+.DS_Store
+*.pem
+.vscode/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
